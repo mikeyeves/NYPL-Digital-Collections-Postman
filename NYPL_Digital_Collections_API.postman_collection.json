@@ -1,0 +1,232 @@
+{
+  "info": {
+    "name": "NYPL Digital Collections API",
+    "description": "New York Public Library Digital Collections API v2. Free token (sign up at api.repo.nypl.org). Used for NYC city directories, maps and photographs in family stories.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "API v2 (docs; needs token)",
+      "item": [
+        {
+          "name": "Search items",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token token=\"{{nypl_token}}\""
+              }
+            ],
+            "url": {
+              "raw": "https://api.repo.nypl.org/api/v2/items/search?q={{query}}&publicDomainOnly=false&per_page=25",
+              "protocol": "https",
+              "host": [
+                "api",
+                "repo",
+                "nypl",
+                "org"
+              ],
+              "path": [
+                "api",
+                "v2",
+                "items",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "{{query}}"
+                },
+                {
+                  "key": "publicDomainOnly",
+                  "value": "false"
+                },
+                {
+                  "key": "per_page",
+                  "value": "25"
+                }
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Search in a field",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token token=\"{{nypl_token}}\""
+              }
+            ],
+            "url": {
+              "raw": "https://api.repo.nypl.org/api/v2/items/search?q={{query}}&field={{field}}",
+              "protocol": "https",
+              "host": [
+                "api",
+                "repo",
+                "nypl",
+                "org"
+              ],
+              "path": [
+                "api",
+                "v2",
+                "items",
+                "search"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "{{query}}"
+                },
+                {
+                  "key": "field",
+                  "value": "{{field}}"
+                }
+              ]
+            },
+            "description": "field: title, name, topic, genre, place, identifier..."
+          }
+        },
+        {
+          "name": "Item by UUID (captures)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token token=\"{{nypl_token}}\""
+              }
+            ],
+            "url": {
+              "raw": "https://api.repo.nypl.org/api/v2/items/{{uuid}}",
+              "protocol": "https",
+              "host": [
+                "api",
+                "repo",
+                "nypl",
+                "org"
+              ],
+              "path": [
+                "api",
+                "v2",
+                "items",
+                "{{uuid}}"
+              ]
+            },
+            "description": "uuid from digitalcollections.nypl.org/items/{uuid}."
+          }
+        },
+        {
+          "name": "MODS for an item",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token token=\"{{nypl_token}}\""
+              }
+            ],
+            "url": {
+              "raw": "https://api.repo.nypl.org/api/v2/items/mods/{{uuid}}",
+              "protocol": "https",
+              "host": [
+                "api",
+                "repo",
+                "nypl",
+                "org"
+              ],
+              "path": [
+                "api",
+                "v2",
+                "items",
+                "mods",
+                "{{uuid}}"
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Item details (captures with image links)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token token=\"{{nypl_token}}\""
+              }
+            ],
+            "url": {
+              "raw": "https://api.repo.nypl.org/api/v2/items/item_details/{{uuid}}",
+              "protocol": "https",
+              "host": [
+                "api",
+                "repo",
+                "nypl",
+                "org"
+              ],
+              "path": [
+                "api",
+                "v2",
+                "items",
+                "item_details",
+                "{{uuid}}"
+              ]
+            },
+            "description": ""
+          }
+        },
+        {
+          "name": "Collections list",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Token token=\"{{nypl_token}}\""
+              }
+            ],
+            "url": {
+              "raw": "https://api.repo.nypl.org/api/v2/collections",
+              "protocol": "https",
+              "host": [
+                "api",
+                "repo",
+                "nypl",
+                "org"
+              ],
+              "path": [
+                "api",
+                "v2",
+                "collections"
+              ]
+            },
+            "description": ""
+          }
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "variable": [
+    {
+      "key": "nypl_token",
+      "value": "PASTE-TOKEN"
+    },
+    {
+      "key": "query",
+      "value": "Polk Missouri"
+    },
+    {
+      "key": "field",
+      "value": "title"
+    },
+    {
+      "key": "uuid",
+      "value": "29b2c4b0-c54e-012f-7025-58d385a7bc34"
+    }
+  ]
+}
